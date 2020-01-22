@@ -80,7 +80,7 @@ class DetailViewController: UIViewController {
       viewFadeIn()
       
     case "Pop":
-      Pop()
+      Pop(UIColor.black)
       
     default:
       let alert = makeAlert("Alert", message: "The animation not implemented yet", actionTitle: "OK")
@@ -176,10 +176,11 @@ class DetailViewController: UIViewController {
       }, completion: nil)
   }
   // change the size
-  fileprivate func Pop() {
+  fileprivate func Pop(_ color: UIColor) {
     UIView.animate(withDuration: duration / 4,
       animations: {
-      self.animateView.transform = CGAffineTransform(scaleX: CGFloat(self.scale), y: CGFloat(self.scale))
+       self.animateView.backgroundColor = color;
+       self.animateView.transform = CGAffineTransform(scaleX: CGFloat(self.scale), y: CGFloat(self.scale))
       }, completion: { finished in
         UIView.animate(withDuration: self.duration / 5, animations: {
           self.animateView.transform = CGAffineTransform.identity
