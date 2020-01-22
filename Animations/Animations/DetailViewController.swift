@@ -120,7 +120,8 @@ class DetailViewController: UIViewController {
   
     // rotate method
   fileprivate func rotateView(_ angel: Double) {
-    UIView.animate(withDuration: duration, delay: delay, options: [.repeat], animations: {
+    // if we add options: [.repeat], after delay so that will make a loop
+    UIView.animate(withDuration: duration, delay: delay,  animations: {
       self.animateView.transform = CGAffineTransform(rotationAngle: CGFloat(angel))
       }, completion: nil)
   }
